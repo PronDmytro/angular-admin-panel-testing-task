@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  apiHost: 'https://smktesting.herokuapp.com',
+  apiPrefix: '/api',
 };
 
 /*
