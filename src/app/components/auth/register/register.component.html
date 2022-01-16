@@ -1,1 +1,58 @@
-<p>register works!</p>
+<div fxLayout="row" fxLayoutAlign="space-between start" class="text-muted p-5 ">
+  <small>
+    <a [routerLink]="['/auth/login']" class="link-secondary text-decoration-none">
+      <i class="bi bi-arrow-left"></i>
+      Go back
+    </a>
+  </small>
+  <small>
+    Have an account
+    <a [routerLink]="['/auth/login']" class="link-secondary">Sign In</a>
+  </small>
+</div>
+
+<div class="p-5">
+  <div class="mb-4">
+    <h4>Sign up to Synapse Internship</h4>
+    <small class=" mt-n1 text-muted">Sign up on our platform</small>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="register()">
+    <input type="text" class="form-control" placeholder="Username" formControlName="username">
+    <span class="text-danger"
+          *ngIf="form.get('username')?.touched && form.get('username')?.hasError('required')">
+      Username is required
+    </span>
+    <input type="password" class="form-control mt-3" placeholder="Password" formControlName="password">
+    <span class="text-danger"
+          *ngIf="form.get('password')?.touched && form.get('password')?.hasError('required')">
+      Password is required
+    </span>
+    <input type="password" class="form-control mt-3" placeholder="Confirm password" formControlName="confirmPassword">
+    <span class="text-danger"
+          *ngIf="form.get('confirmPassword')?.touched && form.get('confirmPassword')?.hasError('required')">
+      Confirm password is required
+    </span>
+    <span class="text-danger"
+          *ngIf="form.get('confirmPassword')?.touched && form.get('confirmPassword')?.hasError('mustMatch')">
+      Passwords does not match
+    </span>
+    <div class="form-check mt-3">
+      <input class="form-check-input" type="checkbox" id="acceptTerms" formControlName="acceptTerms">
+      <label class="form-check-label text-muted" for="acceptTerms">
+        <small>
+          I have read the
+          <a href="https://www.termsfeed.com/live/95b48fcf-1b1a-4998-adb0-31e11302e24f" class="link-secondary">
+            Terms and Conditions
+          </a>
+        </small>
+      </label>
+    </div>
+    <span class="text-danger"
+          *ngIf="submitted && form.get('acceptTerms')?.errors">
+      Accept Ts & Cs is required
+    </span>
+    <button type="submit" class="btn btn-secondary btn-custom mt-2 text-uppercase">
+      Sign up now
+    </button>
+  </form>
+</div>
