@@ -9,6 +9,7 @@ import { ILoginRes } from '../../models/api/ilogin.res';
 import { ILoginReq } from '../../models/api/ilogin.req';
 import { IRegisterReq } from '../../models/api/iregister.req';
 import { IRegisterRes } from '../../models/api/iregister.res';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,7 @@ export class AuthService extends ApiService {
     conf: ConfigurationService,
     private readonly localStorageService: LocalStorageService,
     private router: Router,
+    private toastr: ToastrService,
   ) {
     super(http, conf);
 
@@ -58,7 +60,7 @@ export class AuthService extends ApiService {
 
   public async auth(username: string, password: string): Promise<{ success: boolean }> {
     const resp = await firstValueFrom(
-      this.post<ILoginReq, ILoginRes>('/login/', { username, password } ),
+      this.post<ILoginReq, ILoginRes>('/login/', { username, password }),
     );
 
     if (resp.success && resp.token) {
@@ -66,6 +68,9 @@ export class AuthService extends ApiService {
       await this.router.navigate(['account']);
       return { success: resp.success };
     } else {
+      this.toastr.error(resp.message, 'Something went wrong', {
+        timeOut: 3000,
+      });
       return { success: resp.success };
     }
   }
@@ -80,6 +85,9 @@ export class AuthService extends ApiService {
       await this.router.navigate(['account']);
       return { success: resp.success };
     } else {
+      this.toastr.error(resp.message, 'Something went wrong', {
+        timeOut: 3000,
+      });
       return { success: resp.success };
     }
   }

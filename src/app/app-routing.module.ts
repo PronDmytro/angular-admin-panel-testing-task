@@ -6,10 +6,12 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { FrameComponent } from './components/frame/frame.component';
 import { IsLoggedInGuard } from './core/guards/is-logged-in.guard';
 import { ProductListComponent } from './components/profile/product-list/product-list.component';
+import { AuthFrameComponent } from './components/auth/auth-frame/auth-frame.component';
 
 const routes: Routes = [
   {
     path: 'auth',
+    component: AuthFrameComponent,
     canActivate: [IsNotLoggedInGuard],
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
