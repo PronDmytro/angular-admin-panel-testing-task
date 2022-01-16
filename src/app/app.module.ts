@@ -10,6 +10,8 @@ import { ProductComponent } from './components/profile/product/product.component
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpTokenInterceptor } from './core/interceptors/http.token.interceptor';
 import { FlexModule } from '@angular/flex-layout';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { FlexModule } from '@angular/flex-layout';
     HttpClientModule,
     AppRoutingModule,
     FlexModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true },
