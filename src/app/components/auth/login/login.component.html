@@ -1,1 +1,29 @@
-<p>login works!</p>
+<div fxLayout="row" fxLayoutAlign="end start" class="text-muted p-5 ">
+  <small>
+    Don't have an account?
+    <a [routerLink]="['/auth/register']" class="link-secondary">Sign Up</a>
+  </small>
+</div>
+<div class="p-5">
+  <div class="mb-4">
+    <h4>Sign in to Synapse Internship</h4>
+    <small class="mt-n1 text-muted">Sign in on our platform</small>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="login()">
+    <input type="text" class="form-control" placeholder="Username" formControlName="username">
+    <span class="text-danger"
+          *ngIf="form.get('username')?.touched && form.get('username')?.hasError('required')">
+      Username is required
+    </span>
+    <input type="password" class="form-control mt-3" placeholder="Password" formControlName="password">
+    <span class="text-danger"
+          *ngIf="form.get('password')?.touched && form.get('password')?.hasError('required')">
+      Password is required
+    </span>
+    <button type="submit" class="btn btn-secondary btn-custom mt-3 text-uppercase">
+      Sign in
+    </button>
+  </form>
+
+</div>
