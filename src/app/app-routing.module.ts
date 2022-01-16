@@ -7,6 +7,7 @@ import { FrameComponent } from './components/frame/frame.component';
 import { IsLoggedInGuard } from './core/guards/is-logged-in.guard';
 import { ProductListComponent } from './components/profile/product-list/product-list.component';
 import { AuthFrameComponent } from './components/auth/auth-frame/auth-frame.component';
+import { ProductComponent } from './components/profile/product/product.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,7 @@ const routes: Routes = [
         children: [
           { path: '', redirectTo: 'product-list', pathMatch: 'full' },
           { path: 'product-list', component: ProductListComponent },
+          { path: 'product', component: ProductComponent },
         ],
       },
       { path: '**', redirectTo: 'account', pathMatch: 'full' },
