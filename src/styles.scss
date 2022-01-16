@@ -1,8 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+$enable-negative-margins: true;
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+
 html *{
   font-family: 'Montserrat', sans-serif;
+}
+
+.mt-n1 {
+  margin-top: -0.25rem !important;
+}
+
+body{
+  background-color: #F2F2F2;
 }
