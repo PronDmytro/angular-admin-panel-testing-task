@@ -9,6 +9,7 @@ import { ProductListComponent } from './components/profile/product-list/product-
 import { ProductComponent } from './components/profile/product/product.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpTokenInterceptor } from './core/interceptors/http.token.interceptor';
+import { FlexModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HttpTokenInterceptor } from './core/interceptors/http.token.interceptor
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FlexModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true },
