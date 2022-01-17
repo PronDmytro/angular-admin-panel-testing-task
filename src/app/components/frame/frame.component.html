@@ -1,2 +1,46 @@
-<p>frame works!</p>
-<router-outlet></router-outlet>
+<header class="p-1 sticky-top">
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="navbar-brand text-white" fxLayout="row" fxLayoutAlign="start center">
+      <img src="../../../assets/logo.png" alt="" width="44" height="43" class="d-inline-block align-text-top">
+      Synapse Internship
+    </div>
+    <div class="d-flex">
+      <a class="btn" (click)="logout()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+             class="bi bi-box-arrow-in-right text-white" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+                d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+          <path fill-rule="evenodd"
+                d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="wrapper">
+  <div class="sidebar side-nav card">
+    <div class="mt-4 pb-3 border-bottom" fxLayout="column" fxLayoutAlign="center center">
+      <div class="avatar mb-3 rounded-circle" fxLayout="row" fxLayoutAlign="center center">
+        {{shortUserName}}
+      </div>
+      {{username}}
+    </div>
+    <div class="nav-list mt-3 ms-3">
+      <div class="list-item me-5" [routerLink]="['/account/product-list/']">
+        <i class="bi bi-basket pe-2 ms-2"></i>
+        Products
+      </div>
+    </div>
+  </div>
+  <div class="ms-4 me-4 w-100">
+    <main class="mt-4 mb-4">
+      <div fxLayout="column" class="h-100">
+        <div fxFlex="">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </main>
+    <app-footer></app-footer>
+  </div>
+</div>
