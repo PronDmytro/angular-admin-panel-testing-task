@@ -16,6 +16,7 @@ import { ProductReviewComponent } from './components/profile/product/product-rev
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GlobalErrorHandler } from './core/error-handler/global-error-handler';
+import { FooterComponent } from './components/frame/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { GlobalErrorHandler } from './core/error-handler/global-error-handler';
     ProductComponent,
     AuthFrameComponent,
     ProductReviewComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
