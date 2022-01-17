@@ -1,1 +1,35 @@
-<p>product works!</p>
+<div fxLayout="row" fxLayoutAlign="start start">
+  <div class="card product pb-3">
+    <img class="rounded" width="300" height="300" alt="300x300"
+         src="assets/no-image-found.jpg">
+    <h4 class="text-center mb-3">{{product?.title}}</h4>
+    <p class="description text-muted text-center mb-4">{{product?.text}}</p>
+  </div>
+  <div class="ms-4">
+    <div class="card review ">
+      <p class="fs-6 border-bottom ps-4">Your review</p>
+      <form [formGroup]="reviewForm" (ngSubmit)="submit()">
+        <div class="ps-4 pe-4">
+          <textarea class="form-control" formControlName="review" placeholder="Type your review..."></textarea>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="space-between start">
+          <div class="rating ps-4" fxLayout="row-reverse" fxLayoutAlign="end center">
+            <input type="radio" name="rating" value="5" id="5" formControlName="rating"> <label for="5">☆</label>
+            <input type="radio" name="rating" value="4" id="4" formControlName="rating"> <label for="4">☆</label>
+            <input type="radio" name="rating" value="3" id="3" formControlName="rating"> <label for="3">☆</label>
+            <input type="radio" name="rating" value="2" id="2" formControlName="rating"> <label for="2">☆</label>
+            <input type="radio" name="rating" value="1" id="1" formControlName="rating"> <label for="1">☆</label>
+          </div>
+          <button class="btn btn-send text-uppercase mt-3 ms-4" type="submit">
+            Submit review
+          </button>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="reviews">
+      <ng-container *ngFor="let review of reviews">
+        <app-product-review [reviewData]="review" class="p-2"></app-product-review>
+      </ng-container>
+    </div>
+  </div>
+</div>

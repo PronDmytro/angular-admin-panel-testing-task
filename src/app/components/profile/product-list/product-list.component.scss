@@ -1,0 +1,32 @@
+.card{
+  min-height: calc(100vh - 195px);
+}
+
+th {
+  padding: 22px 0 22px 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+td {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  padding: 12px 0 12px 0;
+}
+
+.th-name {
+  width: 270px;
+}
+
+.th-actions {
+  width: 226px;
+}
+
+.btn-action {
+  color: #FFFFFF;
+  width: 120px;
+  font-size: 14px;
+  background-color: #0D7185;
+}

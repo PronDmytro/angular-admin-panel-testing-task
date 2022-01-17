@@ -1,0 +1,66 @@
+.product > img {
+  margin: 37px;
+}
+
+.description {
+  font-size: 14px;
+}
+
+.btn-send {
+  color: #FFFFFF;
+  width: 150px;
+  font-size: 14px;
+  background-color: #0D7185;
+}
+
+.review {
+  width: 700px;
+  height: 320px;
+}
+
+.review > p {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+textarea {
+  resize: none;
+  height: 130px;
+}
+
+.rating > input {
+  display: none
+}
+
+.rating > label {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  font-size: 30px;
+  font-weight: 300;
+  color: #EAEE19;
+  cursor: pointer
+}
+
+.rating > label::before {
+  content: "\2605";
+  position: absolute;
+  opacity: 0
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before {
+  opacity: 1 !important
+}
+
+.rating > input:checked ~ label:before {
+  opacity: 1
+}
+
+.rating:hover > input:checked ~ label:before {
+  opacity: 0.4
+}
+
+.rating-submit:hover {
+  color: #fff
+}

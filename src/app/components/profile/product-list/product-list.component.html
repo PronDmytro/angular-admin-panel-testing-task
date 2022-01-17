@@ -1,1 +1,32 @@
-<p>product-list works!</p>
+<div class="card">
+  <ng-container *ngIf="isLoading">
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!productList && !isLoading">
+    <h2>Data is empty. Please try later!</h2>
+  </ng-container>
+  <ng-container *ngIf="productList">
+    <table>
+      <thead>
+      <tr class="border-bottom">
+        <th class="ps-5 th-name">Product Name</th>
+        <th class="text-start">Description</th>
+        <th class="th-actions text-end pe-4">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="border-bottom" *ngFor="let product of productList; index as i">
+        <td class="ps-5">{{ product.title }}</td>
+        <td>{{ product.text }}</td>
+        <td class="text-end pe-4">
+          <button class="btn btn-action text-uppercase" (click)="openProduct(product)">Open</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </ng-container>
+</div>
